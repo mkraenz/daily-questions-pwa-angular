@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Question } from '../../questions/questions.data';
 import { QuestionViewComponent } from './question-view';
 
@@ -11,6 +11,8 @@ describe('QuestionViewComponent', () => {
     type: 'points',
     active: true,
   };
+
+  afterEach(() => { vi.useRealTimers(); });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -54,6 +56,36 @@ describe('QuestionViewComponent', () => {
 
     expect(answeredValue).toBe(7);
     expect(testComponent.value()).toBe('');
+  });
+
+  it('should autofocus the answer field when opening the page', () => {
+    vi.useFakeTimers();
+    const fixture = TestBed.createComponent(QuestionViewComponent);
+    fixture.componentRef.setInput('question', mockQuestion);
+    fixture.detectChanges();
+
+    vi.runAllTimers();
+
+    const input = fixture.nativeElement.querySelector('input[type="number"]');
+    expect(document.activeElement).toBe(input);
+  });
+
+  it('after answering, the next question input has focus', () => {
+    vi.useFakeTimers();
+    const fixture = TestBed.createComponent(QuestionViewComponent);
+    const testComponent = fixture.componentInstance;
+    fixture.componentRef.setInput('question', mockQuestion);
+    fixture.detectChanges();
+    vi.runAllTimers();
+    testComponent.value.set('5');
+
+    testComponent.submit();
+    fixture.componentRef.setInput('question', { ...mockQuestion, id: 'test-2', title: 'Second Question' });
+    fixture.detectChanges();
+    vi.runAllTimers();
+
+    const input = fixture.nativeElement.querySelector('input[type="number"]');
+    expect(document.activeElement).toBe(input);
   });
 
   it('when hitting Enter with invalid answer, it does NOT submit', () => {

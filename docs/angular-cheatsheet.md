@@ -236,3 +236,17 @@ export class UserProfile {
   }
 }
 ```
+
+## Element References
+
+Writing #textInput on an element gives that DOM element a local name within the template, and viewChild('textInput') queries for it by that name.
+
+It has two uses:
+
+1. In the template itself — you can reference the element directly in other template expressions:
+   <input #myInput>
+   <button (click)="myInput.focus()">Focus</button>
+2. In the component class via viewChild (what we're doing) — Angular resolves the name and gives you a
+   signal wrapping the ElementRef:
+   private textInput = viewChild<ElementRef<HTMLTextAreaElement>>('textInput');
+   // textInput() returns ElementRef | undefined

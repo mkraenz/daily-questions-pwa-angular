@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, output, signal } from '@angular/core';
+import { Component, ElementRef, computed, effect, input, output, signal, viewChild } from '@angular/core';
 import { Question } from '../../questions/questions.data';
 
 @Component({
@@ -11,6 +11,9 @@ export class QuestionViewComponent {
   question = input.required<Question>();
   existingAnswer = input<string | number | null>(null);
   answered = output<string | number>();
+
+  private numberInput = viewChild<ElementRef<HTMLInputElement>>('numberInput');
+  private textInput = viewChild<ElementRef<HTMLTextAreaElement>>('textInput');
 
   value = signal<string>('');
 
@@ -31,6 +34,17 @@ export class QuestionViewComponent {
       } else {
         this.value.set('');
       }
+    });
+
+    effect(() => {
+      const q = this.question();
+      setTimeout(() => {
+        if (q.type === 'points') {
+          this.numberInput()?.nativeElement.focus();
+        } else {
+          this.textInput()?.nativeElement.focus();
+        }
+      });
     });
   }
 
