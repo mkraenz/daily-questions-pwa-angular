@@ -18,6 +18,7 @@ export const ja: Translations = {
     title: 'サマリー',
     confirm: '確認',
   },
+  theme: { toLightMode: 'ライトモードに切り替え', toDarkMode: 'ダークモードに切り替え' },
   toast: { saved: '回答を保存しました！' },
   loading: '準備中...',
   stubs: {

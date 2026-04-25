@@ -2,10 +2,11 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { LanguageService } from './services/language.service';
+import { ThemeToggleComponent } from './shared/theme-toggle';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, NgClass],
+  imports: [RouterOutlet, RouterLink, NgClass, ThemeToggleComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

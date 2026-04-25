@@ -16,6 +16,7 @@ export const en = {
     title: 'Summary',
     confirm: 'Confirm',
   },
+  theme: { toLightMode: 'Switch to light mode', toDarkMode: 'Switch to dark mode' },
   toast: { saved: 'Responses saved!' },
   loading: 'Getting ready...',
   stubs: {

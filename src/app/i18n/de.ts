@@ -18,6 +18,7 @@ export const de: Translations = {
     title: 'Zusammenfassung',
     confirm: 'Bestätigen',
   },
+  theme: { toLightMode: 'Zum hellen Modus wechseln', toDarkMode: 'Zum dunklen Modus wechseln' },
   toast: { saved: 'Antworten gespeichert!' },
   loading: 'Wird vorbereitet...',
   stubs: {
