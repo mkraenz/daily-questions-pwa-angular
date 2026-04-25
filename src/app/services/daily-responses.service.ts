@@ -1,34 +1,20 @@
 import { Injectable } from '@angular/core';
-
-export interface AnswerRecord {
-  questionId: string;
-  value: string | number;
-}
-
-export interface DailyResponse {
-  date: string;
-  answers: AnswerRecord[];
-}
+import { DailyResponse, db } from './app-db';
 
 @Injectable({ providedIn: 'root' })
 export class DailyResponsesService {
-  private readonly STORAGE_KEY = 'daily-responses';
+  private readonly db = db;
 
-  getAll(): DailyResponse[] {
-    const raw = localStorage.getItem(this.STORAGE_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw) as DailyResponse[];
-    return parsed.sort((a, b) => b.date.localeCompare(a.date));
+  getAll(): Promise<DailyResponse[]> {
+    return this.db.answers.orderBy('date').reverse().toArray();
   }
 
-  getByDate(date: string): DailyResponse | null {
-    return this.getAll().find(r => r.date === date) ?? null;
+  async getByDate(date: string): Promise<DailyResponse | null> {
+    return (await this.db.answers.get({ date })) ?? null;
   }
 
-  saveResponse(response: DailyResponse): void {
-    const all = this.getAll().filter(r => r.date !== response.date);
-    all.push(response);
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(all));
+  async saveResponse(response: DailyResponse): Promise<void> {
+    await this.db.answers.put(response);
   }
 
   todayDate(): string {
