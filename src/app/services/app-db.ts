@@ -1,35 +1,25 @@
-import Dexie, { type EntityTable } from 'dexie';
-import { defaultQuestions } from '../questions/questions.data';
+import Dexie, { type DexieOptions, type EntityTable } from 'dexie';
+import { InjectionToken } from '@angular/core';
+import { DailyResponse, Question } from './domain.types';
+import { defaultQuestions } from './questions.data';
 
-export interface Answer {
-  questionId: string;
-  value: string | number;
+export class AppDb extends Dexie {
+  questions!: EntityTable<Question, 'id'>;
+  answers!: EntityTable<DailyResponse, 'date'>;
+
+  constructor(options?: DexieOptions) {
+    super('dq-app-db', options);
+    this.version(1).stores({
+      questions: 'id, active, ordering',
+      answers: 'date',
+    });
+    this.on('populate', async () => {
+      await this.questions.bulkAdd(defaultQuestions);
+    });
+  }
 }
 
-export interface DailyResponse {
-  date: string;
-  answers: Answer[];
-}
-export interface Question {
-  title: string;
-  id: string; // first 8 chars of a uuid v4
-  questionLong: string;
-  type: 'points' | 'fulltext';
-  active: boolean;
-}
-
-const db = new Dexie('dq-app-db') as Dexie & {
-  questions: EntityTable<Question, 'id'>;
-  answers: EntityTable<DailyResponse, 'date'>;
-};
-
-db.version(1).stores({
-  questions: 'id',
-  answers: 'date',
+export const APP_DB = new InjectionToken<AppDb>('AppDb', {
+  providedIn: 'root',
+  factory: () => new AppDb(),
 });
-
-db.on('populate', async () => {
-  await db.questions.bulkAdd(defaultQuestions);
-});
-
-export { db };

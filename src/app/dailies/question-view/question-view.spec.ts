@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { Question } from '../../questions/questions.data';
+import { Question } from '../../services/domain.types';
 import { QuestionViewComponent } from './question-view';
 
 describe('QuestionViewComponent', () => {
@@ -10,9 +10,12 @@ describe('QuestionViewComponent', () => {
     questionLong: 'Is this a test question?',
     type: 'points',
     active: true,
+    ordering: 0,
   };
 
-  afterEach(() => { vi.useRealTimers(); });
+  afterEach(() => {
+    vi.useRealTimers();
+  });
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -34,7 +37,9 @@ describe('QuestionViewComponent', () => {
     fixture.detectChanges();
     testComponent.value.set('5');
     let answeredValue: string | number | undefined;
-    testComponent.answered.subscribe((value) => { answeredValue = value; });
+    testComponent.answered.subscribe((value) => {
+      answeredValue = value;
+    });
 
     testComponent.submit();
 
@@ -49,7 +54,9 @@ describe('QuestionViewComponent', () => {
     fixture.detectChanges();
     testComponent.value.set('7');
     let answeredValue: string | number | undefined;
-    testComponent.answered.subscribe((value) => { answeredValue = value; });
+    testComponent.answered.subscribe((value) => {
+      answeredValue = value;
+    });
     const input = fixture.nativeElement.querySelector('input[type="number"]');
 
     input?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
@@ -80,7 +87,11 @@ describe('QuestionViewComponent', () => {
     testComponent.value.set('5');
 
     testComponent.submit();
-    fixture.componentRef.setInput('question', { ...mockQuestion, id: 'test-2', title: 'Second Question' });
+    fixture.componentRef.setInput('question', {
+      ...mockQuestion,
+      id: 'test-2',
+      title: 'Second Question',
+    });
     fixture.detectChanges();
     vi.runAllTimers();
 
@@ -95,7 +106,9 @@ describe('QuestionViewComponent', () => {
     fixture.detectChanges();
     testComponent.value.set('15');
     let emitCount = 0;
-    testComponent.answered.subscribe(() => { emitCount++; });
+    testComponent.answered.subscribe(() => {
+      emitCount++;
+    });
     const input = fixture.nativeElement.querySelector('input[type="number"]');
 
     input?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));

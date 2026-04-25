@@ -1,11 +1,11 @@
 import { Component, input, output } from '@angular/core';
-import { Question } from '../../questions/questions.data';
+import { Question } from '../../services/domain.types';
 
 @Component({
   selector: 'app-summary-view',
   imports: [],
   templateUrl: './summary-view.html',
-  styleUrl: './summary-view.css'
+  styleUrl: './summary-view.css',
 })
 export class SummaryViewComponent {
   questions = input.required<Question[]>();

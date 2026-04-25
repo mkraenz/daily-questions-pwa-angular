@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { DailyResponse, db } from './app-db';
+import { Injectable, inject } from '@angular/core';
+import { APP_DB } from './app-db';
+import { DailyResponse } from './domain.types';
 
 @Injectable({ providedIn: 'root' })
 export class DailyResponsesService {
-  private readonly db = db;
+  private readonly db = inject(APP_DB);
 
   getAll(): Promise<DailyResponse[]> {
     return this.db.answers.orderBy('date').reverse().toArray();

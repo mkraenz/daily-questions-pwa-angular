@@ -1,10 +1,4 @@
-export interface Question {
-  title: string;
-  id: string; // first 8 chars of a uuid v4
-  questionLong: string;
-  type: 'points' | 'fulltext';
-  active: boolean;
-}
+import { Question } from './domain.types';
 
 export const defaultQuestions: ({
   title: 'Goals' | 'Progress' | 'Meaning' | 'Happiness' | 'Social' | 'Engagement' | 'Highlight';
@@ -15,6 +9,7 @@ export const defaultQuestions: ({
     questionLong: 'Did I do my best to set clear goals today?',
     type: 'points',
     active: true,
+    ordering: 0,
   },
   {
     title: 'Progress',
@@ -22,6 +17,7 @@ export const defaultQuestions: ({
     questionLong: 'Did I do my best to make progress towards my goals today?',
     type: 'points',
     active: true,
+    ordering: 10000,
   },
   {
     title: 'Meaning',
@@ -29,6 +25,7 @@ export const defaultQuestions: ({
     questionLong: 'Did I do my best to find meaning in what I am doing today?',
     type: 'points',
     active: true,
+    ordering: 20000,
   },
   {
     title: 'Happiness',
@@ -36,6 +33,7 @@ export const defaultQuestions: ({
     questionLong: 'Did I do my best to be happy today?',
     type: 'points',
     active: true,
+    ordering: 30000,
   },
   {
     title: 'Social',
@@ -43,6 +41,7 @@ export const defaultQuestions: ({
     questionLong: 'Did I do my best to build positive relationships today?',
     type: 'points',
     active: true,
+    ordering: 40000,
   },
   {
     title: 'Engagement',
@@ -50,6 +49,7 @@ export const defaultQuestions: ({
     questionLong: 'Did I do my best to be fully engaged today?',
     type: 'points',
     active: true,
+    ordering: 50000,
   },
   {
     title: 'Highlight',
@@ -57,5 +57,6 @@ export const defaultQuestions: ({
     questionLong: 'What was my personal highlight today and why?',
     type: 'fulltext',
     active: true,
+    ordering: 60000,
   },
 ];

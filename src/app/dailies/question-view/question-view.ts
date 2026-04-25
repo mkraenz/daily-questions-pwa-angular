@@ -1,5 +1,14 @@
-import { Component, ElementRef, computed, effect, input, output, signal, viewChild } from '@angular/core';
-import { Question } from '../../questions/questions.data';
+import {
+  Component,
+  ElementRef,
+  computed,
+  effect,
+  input,
+  output,
+  signal,
+  viewChild,
+} from '@angular/core';
+import { Question } from '../../services/domain.types';
 
 @Component({
   selector: 'app-question-view',

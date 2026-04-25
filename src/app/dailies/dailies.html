@@ -1,17 +1,13 @@
 <div class="max-w-2xl mx-auto p-6">
-  @if (view() === 'question') {
-    <app-question-view
-      [question]="currentQuestion()"
-      [existingAnswer]="answers().get(currentQuestion().id) || null"
-      (answered)="onAnswer($event)"
-    />
+  @if (questionsLoading()) {
+  <p>Getting ready...</p>
   } @else {
-    <app-summary-view
-      [questions]="activeQuestions()"
-      [answers]="answers()"
-      (edit)="onEdit($event)"
-      (confirm)="onConfirm()"
-    />
+    @if (view() === 'question') {
+    <app-question-view [question]="currentQuestion()" [existingAnswer]="answers().get(currentQuestion().id) || null"
+      (answered)="onAnswer($event)" />
+    } @else {
+    <app-summary-view [questions]="questions()" [answers]="answers()" (edit)="onEdit($event)" (confirm)="onConfirm()" />
+    }
   }
 
   <app-toast [visible]="showToast()" message="Responses saved!" />
