@@ -1,11 +1,11 @@
-import { Component, input, output, signal, computed, effect } from '@angular/core';
+import { Component, computed, effect, input, output, signal } from '@angular/core';
 import { Question } from '../../questions/questions.data';
 
 @Component({
   selector: 'app-question-view',
   imports: [],
   templateUrl: './question-view.html',
-  styleUrl: './question-view.css'
+  styleUrl: './question-view.css',
 })
 export class QuestionViewComponent {
   question = input.required<Question>();
@@ -39,5 +39,6 @@ export class QuestionViewComponent {
     const v = this.value();
     const finalValue = this.question().type === 'points' ? Number(v) : v;
     this.answered.emit(finalValue);
+    this.value.set('');
   }
 }

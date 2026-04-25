@@ -108,3 +108,13 @@ Assets from the `public/` directory are included in builds automatically.
 - **Target:** ES2022 with strict mode enabled
 - **Lib:** DOM, ES2022
 - Config files: `tsconfig.json` (base), `tsconfig.app.json` (application), `tsconfig.spec.json` (tests)
+
+## Code Style
+
+- Only add comments when logic isn't self-evident
+- Never add comments to code that wasn't changed
+- Focus on making code readable first, comments second
+
+### Tests
+
+Structure test cases with three blocks: arrange, act, assert (AAA). Separate the blocks with a blank line. Do not label them with comments.
