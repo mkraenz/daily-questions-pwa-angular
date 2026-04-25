@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-settings',
-  template: '<p class="p-8 text-gray-500">Settings — coming soon</p>',
+  template: '<p class="p-8 text-gray-500">{{ t().stubs.settings }}</p>',
 })
-export class SettingsComponent {}
+export class SettingsComponent {
+  protected readonly t = inject(LanguageService).t;
+}

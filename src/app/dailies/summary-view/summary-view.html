@@ -1,5 +1,5 @@
 <div class="space-y-6">
-  <h2 class="text-2xl font-bold">Summary</h2>
+  <h2 class="text-2xl font-bold">{{ t().summary.title }}</h2>
 
   <div class="space-y-3">
     @for (question of questions(); track question.id) {
@@ -17,6 +17,6 @@
     (click)="onConfirm()"
     class="w-full bg-green-500 text-white py-2 rounded-lg font-medium hover:bg-green-600"
   >
-    Confirm
+    {{ t().summary.confirm }}
   </button>
 </div>

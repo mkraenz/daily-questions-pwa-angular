@@ -1,5 +1,6 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Question } from '../../services/domain.types';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-summary-view',
@@ -8,6 +9,7 @@ import { Question } from '../../services/domain.types';
   styleUrl: './summary-view.css',
 })
 export class SummaryViewComponent {
+  protected readonly t = inject(LanguageService).t;
   questions = input.required<Question[]>();
   answers = input.required<Map<string, string | number>>();
 

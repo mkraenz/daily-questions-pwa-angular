@@ -4,6 +4,7 @@ import { liveQuery } from 'dexie';
 import { from } from 'rxjs';
 import { DailyResponsesService } from '../services/daily-responses.service';
 import { Question } from '../services/domain.types';
+import { LanguageService } from '../services/language.service';
 import { QuestionsService } from '../services/questions.service';
 import { QuestionViewComponent } from './question-view/question-view';
 import { SummaryViewComponent } from './summary-view/summary-view';
@@ -16,6 +17,7 @@ import { ToastComponent } from './toast/toast';
   styleUrl: './dailies.css',
 })
 export class DailiesComponent {
+  protected readonly t = inject(LanguageService).t;
   private dailyResponsesService = inject(DailyResponsesService);
   private questionsService = inject(QuestionsService);
 

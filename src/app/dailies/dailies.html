@@ -1,6 +1,6 @@
 <div class="max-w-2xl mx-auto p-6">
   @if (questionsLoading()) {
-  <p>Getting ready...</p>
+  <p>{{ t().loading }}</p>
   } @else {
     @if (view() === 'question') {
     <app-question-view [question]="currentQuestion()" [existingAnswer]="answers().get(currentQuestion().id) || null"
@@ -10,5 +10,5 @@
     }
   }
 
-  <app-toast [visible]="showToast()" message="Responses saved!" />
+  <app-toast [visible]="showToast()" [message]="t().toast.saved" />
 </div>

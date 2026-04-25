@@ -3,12 +3,14 @@ import {
   ElementRef,
   computed,
   effect,
+  inject,
   input,
   output,
   signal,
   viewChild,
 } from '@angular/core';
 import { Question } from '../../services/domain.types';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-question-view',
@@ -17,6 +19,7 @@ import { Question } from '../../services/domain.types';
   styleUrl: './question-view.css',
 })
 export class QuestionViewComponent {
+  protected readonly t = inject(LanguageService).t;
   question = input.required<Question>();
   existingAnswer = input<string | number | null>(null);
   answered = output<string | number>();
