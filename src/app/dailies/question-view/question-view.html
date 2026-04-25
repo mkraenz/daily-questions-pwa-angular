@@ -1,0 +1,40 @@
+<div class="space-y-6">
+  <div>
+    <h2 class="text-2xl font-bold mb-2">{{ question().title }}</h2>
+    <p class="text-gray-700">{{ question().questionLong }}</p>
+  </div>
+
+  <div class="space-y-3">
+    @if (question().type === 'points') {
+      <div>
+        <label class="block text-sm font-medium mb-2">Rate from 1 to 10:</label>
+        <input
+          type="number"
+          min="1"
+          max="10"
+          [value]="value()"
+          (input)="value.set($any($event.target).value)"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+    } @else {
+      <div>
+        <label class="block text-sm font-medium mb-2">Your answer:</label>
+        <textarea
+          [value]="value()"
+          (input)="value.set($any($event.target).value)"
+          rows="5"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        ></textarea>
+      </div>
+    }
+  </div>
+
+  <button
+    (click)="submit()"
+    [disabled]="!isValid()"
+    class="w-full bg-blue-500 text-white py-2 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600"
+  >
+    Next
+  </button>
+</div>

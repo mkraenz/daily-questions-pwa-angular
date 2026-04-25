@@ -217,3 +217,22 @@ look like svelte's event modifiers (both use the pipe `|` character)
 ```
 
 > Pitfall: pipes are only re-executed when the reference changes! Mutations aren't detected.
+
+## Signals
+
+Signals = automatic, reactive updates of template etc. Plain properties = stale values unless manually managed.
+
+```ts
+@Component({
+  /* ... */
+})
+export class UserProfile {
+  isTrial = signal(false);
+  isTrialExpired = signal(false);
+  showTrialDuration = computed(() => this.isTrial() && !this.isTrialExpired());
+
+  activateTrial() {
+    this.isTrial.set(true);
+  }
+}
+```
