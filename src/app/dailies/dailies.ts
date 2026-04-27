@@ -6,16 +6,16 @@ import { DailyResponsesService } from '../services/daily-responses.service';
 import { Question } from '../services/domain.types';
 import { LanguageService } from '../services/language.service';
 import { QuestionsService } from '../services/questions.service';
-import { QuestionViewComponent } from './question-view/question-view';
-import { SummaryViewComponent } from './summary-view/summary-view';
-import { ToastComponent } from './toast/toast';
+import { QuestionView } from './question-view/question-view';
+import { SummaryView } from './summary-view/summary-view';
+import { Toast } from './toast/toast';
 
 @Component({
   selector: 'app-dailies',
-  imports: [QuestionViewComponent, SummaryViewComponent, ToastComponent],
+  imports: [QuestionView, SummaryView, Toast],
   templateUrl: './dailies.html',
 })
-export class DailiesComponent {
+export class Dailies {
   protected readonly t = inject(LanguageService).t;
   private dailyResponsesService = inject(DailyResponsesService);
   private questionsService = inject(QuestionsService);

@@ -5,6 +5,6 @@ import { LanguageService } from '../services/language.service';
   selector: 'app-about',
   template: '<p class="p-8 text-gray-500">{{ t().stubs.about }}</p>',
 })
-export class AboutComponent {
+export class About {
   protected readonly t = inject(LanguageService).t;
 }

@@ -13,4 +13,4 @@ import { Component } from '@angular/core';
     </svg>
   `,
 })
-export class SunIconComponent {}
+export class SunIcon {}

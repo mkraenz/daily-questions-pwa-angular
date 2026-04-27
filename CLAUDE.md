@@ -32,7 +32,6 @@ src/
 ├── app/
 │   ├── app.ts              # Root component (standalone)
 │   ├── app.html            # Root template
-│   ├── app.css             # Component styles
 │   ├── app.routes.ts       # Route definitions
 │   ├── app.config.ts       # Application configuration & providers
 │   └── app.spec.ts         # Root component tests
@@ -54,7 +53,6 @@ import { Component, signal } from '@angular/core';
   selector: 'app-my-feature',
   imports: [CommonModule], // Declare dependencies here, not in a module
   templateUrl: './my-feature.html',
-  styleUrl: './my-feature.css',
 })
 export class MyFeatureComponent {
   count = signal(0);
@@ -122,6 +120,8 @@ Assets from the `public/` directory are included in builds automatically.
 
 ## Code Style
 
+- Component class names do NOT get a `Component` suffix (per [Angular style guide](https://angular.dev/style-guide)) — use `ThemeToggle`, not `ThemeToggleComponent`
+- Delete empty component CSS files and remove the `styleUrl` from the `@Component` decorator — Tailwind handles all styling in templates
 - Only add comments when logic isn't self-evident
 - Never add comments to code that wasn't changed
 - Focus on making code readable first, comments second
@@ -129,3 +129,5 @@ Assets from the `public/` directory are included in builds automatically.
 ### Tests
 
 Structure test cases with three blocks: arrange, act, assert (AAA). Separate the blocks with a blank line. Do not label them with comments.
+
+Do not wrap all tests in a single top-level `describe` that just reflects the file name — write `it(...)` blocks at the top level instead.

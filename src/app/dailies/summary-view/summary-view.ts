@@ -7,7 +7,7 @@ import { LanguageService } from '../../services/language.service';
   imports: [],
   templateUrl: './summary-view.html',
 })
-export class SummaryViewComponent {
+export class SummaryView {
   protected readonly t = inject(LanguageService).t;
   questions = input.required<Question[]>();
   answers = input.required<Map<string, string | number>>();

@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 import { ThemeService } from '../../services/theme.service';
-import { MoonIconComponent } from './moon-icon';
-import { SunIconComponent } from './sun-icon';
+import { MoonIcon } from './moon-icon';
+import { SunIcon } from './sun-icon';
 
 @Component({
   selector: 'app-theme-toggle',
-  imports: [SunIconComponent, MoonIconComponent],
+  imports: [SunIcon, MoonIcon],
   template: `
     <button
       (click)="theme.toggle()"
@@ -21,7 +21,7 @@ import { SunIconComponent } from './sun-icon';
     </button>
   `,
 })
-export class ThemeToggleComponent {
+export class ThemeToggle {
   protected readonly theme = inject(ThemeService);
   protected readonly t = inject(LanguageService).t;
 }

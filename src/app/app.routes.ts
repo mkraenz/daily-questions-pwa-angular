@@ -4,11 +4,11 @@ export const routes: Routes = [
   { path: '', redirectTo: 'dailies', pathMatch: 'full' },
   {
     path: 'dailies',
-    loadComponent: () => import('./dailies/dailies').then((m) => m.DailiesComponent),
+    loadComponent: () => import('./dailies/dailies').then((m) => m.Dailies),
   },
   {
     path: 'history',
-    loadComponent: () => import('./history/history').then((m) => m.HistoryComponent),
+    loadComponent: () => import('./history/history').then((m) => m.History),
   },
   {
     path: 'customize',
@@ -19,10 +19,10 @@ export const routes: Routes = [
   },
   {
     path: 'settings',
-    loadComponent: () => import('./settings/settings').then((m) => m.SettingsComponent),
+    loadComponent: () => import('./settings/settings').then((m) => m.Settings),
   },
   {
     path: 'about',
-    loadComponent: () => import('./about/about').then((m) => m.AboutComponent),
+    loadComponent: () => import('./about/about').then((m) => m.About),
   },
 ];

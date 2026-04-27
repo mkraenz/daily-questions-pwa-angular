@@ -5,6 +5,6 @@ import { LanguageService } from '../services/language.service';
   selector: 'app-settings',
   template: '<p class="p-8 text-gray-500">{{ t().stubs.settings }}</p>',
 })
-export class SettingsComponent {
+export class Settings {
   protected readonly t = inject(LanguageService).t;
 }

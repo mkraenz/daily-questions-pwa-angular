@@ -1,18 +1,18 @@
 import { NgClass } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { LanguageToggle } from './i18n/language-toggle';
 import { LanguageService } from './services/language.service';
-import { ThemeToggleComponent } from './shared/theme-toggle/theme-toggle';
+import { ThemeToggle } from './shared/theme-toggle/theme-toggle';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, NgClass, ThemeToggleComponent],
+  imports: [RouterOutlet, RouterLink, NgClass, ThemeToggle, LanguageToggle],
   templateUrl: './app.html',
 })
 export class App {
   drawerOpen = signal(false);
-  protected readonly language = inject(LanguageService);
-  protected readonly t = this.language.t;
+  protected readonly t = inject(LanguageService).t;
 
   protected readonly navItems = computed(() => [
     { label: this.t().nav.dailies, path: '/dailies' },

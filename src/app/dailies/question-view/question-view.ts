@@ -17,7 +17,7 @@ import { LanguageService } from '../../services/language.service';
   imports: [],
   templateUrl: './question-view.html',
 })
-export class QuestionViewComponent {
+export class QuestionView {
   protected readonly t = inject(LanguageService).t;
   question = input.required<Question>();
   existingAnswer = input<string | number | null>(null);

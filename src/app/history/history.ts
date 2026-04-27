@@ -5,6 +5,6 @@ import { LanguageService } from '../services/language.service';
   selector: 'app-history',
   template: '<p class="p-8 text-gray-500">{{ t().stubs.history }}</p>',
 })
-export class HistoryComponent {
+export class History {
   protected readonly t = inject(LanguageService).t;
 }
