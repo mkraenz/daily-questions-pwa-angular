@@ -99,6 +99,24 @@ describe('QuestionViewComponent', () => {
     expect(document.activeElement).toBe(input);
   });
 
+  it('when hitting Ctrl+Enter, it pushes the Next button', () => {
+    const fixture = TestBed.createComponent(QuestionViewComponent);
+    const testComponent = fixture.componentInstance;
+    fixture.componentRef.setInput('question', mockQuestion);
+    fixture.detectChanges();
+    testComponent.value.set('7');
+    let answeredValue: string | number | undefined;
+    testComponent.answered.subscribe((value) => {
+      answeredValue = value;
+    });
+    const input = fixture.nativeElement.querySelector('input[type="number"]');
+
+    input?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', ctrlKey: true }));
+
+    expect(answeredValue).toBe(7);
+    expect(testComponent.value()).toBe('');
+  });
+
   it('when hitting Enter with invalid answer, it does NOT submit', () => {
     const fixture = TestBed.createComponent(QuestionViewComponent);
     const testComponent = fixture.componentInstance;
