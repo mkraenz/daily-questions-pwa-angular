@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { LanguageService } from '../services/language.service';
-import { ThemeService } from '../services/theme.service';
+import { LanguageService } from '../../services/language.service';
+import { ThemeService } from '../../services/theme.service';
 import { MoonIconComponent } from './moon-icon';
 import { SunIconComponent } from './sun-icon';
 
