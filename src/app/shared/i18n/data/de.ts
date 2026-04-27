@@ -21,6 +21,9 @@ export const de: Translations = {
   theme: { toLightMode: 'Zum hellen Modus wechseln', toDarkMode: 'Zum dunklen Modus wechseln' },
   toast: { saved: 'Antworten gespeichert!' },
   loading: 'Wird vorbereitet...',
+  history: {
+    empty: 'Noch keine Antworten vorhanden.',
+  },
   stubs: {
     history: 'Verlauf — demnächst verfügbar',
     customize: 'Fragen anpassen — demnächst verfügbar',

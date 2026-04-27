@@ -1,0 +1,12 @@
+@if (responses().length === 0) {
+  <p class="p-8 text-gray-500">{{ t().history.empty }}</p>
+} @else {
+  <ul class="p-8 space-y-4">
+    @for (response of responses(); track response.date) {
+      <li>
+        <p class="font-bold">{{ response.date }}</p>
+        <p class="text-gray-700 dark:text-gray-300">{{ formatAnswers(response.answers) }}</p>
+      </li>
+    }
+  </ul>
+}

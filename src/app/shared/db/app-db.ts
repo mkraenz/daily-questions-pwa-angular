@@ -1,6 +1,7 @@
-import { InjectionToken } from '@angular/core';
+import { InjectionToken, isDevMode } from '@angular/core';
 import Dexie, { type DexieOptions, type EntityTable } from 'dexie';
 import { defaultQuestions } from './default-questions.data';
+import { mockAnswers } from './mock-answers.data';
 import { DailyResponse, Question } from './domain.types';
 
 export class AppDb extends Dexie {
@@ -15,6 +16,9 @@ export class AppDb extends Dexie {
     });
     this.on('populate', async () => {
       await this.questions.bulkAdd(defaultQuestions);
+      if (isDevMode()) {
+        await this.answers.bulkAdd(mockAnswers);
+      }
     });
   }
 }

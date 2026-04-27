@@ -21,6 +21,9 @@ export const ja: Translations = {
   theme: { toLightMode: 'ライトモードに切り替え', toDarkMode: 'ダークモードに切り替え' },
   toast: { saved: '回答を保存しました！' },
   loading: '準備中...',
+  history: {
+    empty: 'まだ回答がありません。',
+  },
   stubs: {
     history: '履歴 — 近日公開',
     customize: '質問をカスタマイズ — 近日公開',

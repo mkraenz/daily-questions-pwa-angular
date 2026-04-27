@@ -19,6 +19,9 @@ export const en = {
   theme: { toLightMode: 'Switch to light mode', toDarkMode: 'Switch to dark mode' },
   toast: { saved: 'Responses saved!' },
   loading: 'Getting ready...',
+  history: {
+    empty: 'No responses yet.',
+  },
   stubs: {
     history: 'History — coming soon',
     customize: 'Customize Questions — coming soon',
