@@ -13,7 +13,7 @@ const makeQuestion = (overrides: Partial<Question> & { id: string }): Question =
   title: 'Test Question',
   questionLong: 'A test question?',
   type: 'points',
-  active: true,
+  active: 1,
   ordering: 0,
   ...overrides,
 });
@@ -59,9 +59,9 @@ it('should return questions sorted by ordering', async () => {
 
 it('should only return active questions', async () => {
   await db.questions.bulkAdd([
-    makeQuestion({ id: 'q1', active: true }),
-    makeQuestion({ id: 'q2', active: false }),
-    makeQuestion({ id: 'q3', active: true }),
+    makeQuestion({ id: 'q1', active: 1 }),
+    makeQuestion({ id: 'q2', active: 0 }),
+    makeQuestion({ id: 'q3', active: 1 }),
   ]);
 
   const result = await service.getAllActive();

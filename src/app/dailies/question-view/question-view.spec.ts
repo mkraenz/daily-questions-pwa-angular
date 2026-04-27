@@ -8,7 +8,7 @@ const mockQuestion: Question = {
   title: 'Test Question',
   questionLong: 'Is this a test question?',
   type: 'points',
-  active: true,
+  active: 1,
   ordering: 0,
 };
 

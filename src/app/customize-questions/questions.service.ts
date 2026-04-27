@@ -11,9 +11,6 @@ export class QuestionsService {
   }
 
   getAllActive(): Promise<Question[]> {
-    return this.db.questions
-      .orderBy('ordering')
-      .filter((x) => x.active)
-      .toArray();
+    return this.db.questions.where('active').equals(1).sortBy('ordering');
   }
 }
