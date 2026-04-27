@@ -1,9 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { LanguageToggle } from './i18n/language-toggle';
-import { LanguageService } from './services/language.service';
-import { ThemeToggle } from './shared/theme-toggle/theme-toggle';
+import { LanguageToggle } from './shared/i18n/language-toggle';
+import { LanguageService } from './shared/i18n/language.service';
+import { ThemeToggle } from './shared/theme/theme-toggle';
 
 @Component({
   selector: 'app-root',

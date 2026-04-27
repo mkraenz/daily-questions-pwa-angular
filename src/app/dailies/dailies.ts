@@ -2,13 +2,13 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { liveQuery } from 'dexie';
 import { from } from 'rxjs';
-import { DailyResponsesService } from '../services/daily-responses.service';
-import { Question } from '../services/domain.types';
-import { LanguageService } from '../services/language.service';
-import { QuestionsService } from '../services/questions.service';
+import { QuestionsService } from '../customize-questions/questions.service';
+import { Question } from '../shared/db/domain.types';
+import { LanguageService } from '../shared/i18n/language.service';
+import { Toast } from '../shared/toast/toast';
+import { DailyResponsesService } from './daily-responses.service';
 import { QuestionView } from './question-view/question-view';
 import { SummaryView } from './summary-view/summary-view';
-import { Toast } from './toast/toast';
 
 @Component({
   selector: 'app-dailies',

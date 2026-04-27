@@ -9,8 +9,8 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { Question } from '../../services/domain.types';
-import { LanguageService } from '../../services/language.service';
+import { Question } from '../../shared/db/domain.types';
+import { LanguageService } from '../../shared/i18n/language.service';
 
 @Component({
   selector: 'app-question-view',

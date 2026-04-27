@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { LanguageService } from '../../services/language.service';
-import { ThemeService } from '../../services/theme.service';
+import { LanguageService } from '../i18n/language.service';
 import { MoonIcon } from './moon-icon';
 import { SunIcon } from './sun-icon';
+import { ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-theme-toggle',

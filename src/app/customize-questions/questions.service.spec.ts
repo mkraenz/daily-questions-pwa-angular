@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { IDBFactory, IDBKeyRange } from 'fake-indexeddb';
 import { beforeEach, expect, it } from 'vitest';
-import { APP_DB, AppDb } from './app-db';
-import { Question } from './domain.types';
+import { APP_DB, AppDb } from '../shared/db/app-db';
+import { Question } from '../shared/db/domain.types';
 import { QuestionsService } from './questions.service';
 
 function createTestDb(): AppDb {

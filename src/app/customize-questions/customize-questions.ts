@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { LanguageService } from '../services/language.service';
+import { LanguageService } from '../shared/i18n/language.service';
 
 @Component({
   selector: 'app-customize-questions',

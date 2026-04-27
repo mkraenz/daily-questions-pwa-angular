@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
-import { Question } from '../../services/domain.types';
+import { Question } from '../../shared/db/domain.types';
 import { QuestionView } from './question-view';
 
 const mockQuestion: Question = {

@@ -1,8 +1,8 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { de } from '../i18n/data/de';
-import { en } from '../i18n/data/en';
-import { ja } from '../i18n/data/ja';
-import { Translations } from '../i18n/data/types';
+import { de } from './data/de';
+import { en } from './data/en';
+import { ja } from './data/ja';
+import { Translations } from './data/types';
 
 export type Language = 'en' | 'de' | 'ja';
 

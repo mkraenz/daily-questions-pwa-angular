@@ -1,7 +1,7 @@
-import Dexie, { type DexieOptions, type EntityTable } from 'dexie';
 import { InjectionToken } from '@angular/core';
+import Dexie, { type DexieOptions, type EntityTable } from 'dexie';
+import { defaultQuestions } from './default-questions.data';
 import { DailyResponse, Question } from './domain.types';
-import { defaultQuestions } from './questions.data';
 
 export class AppDb extends Dexie {
   questions!: EntityTable<Question, 'id'>;
