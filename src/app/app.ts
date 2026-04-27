@@ -8,7 +8,6 @@ import { ThemeToggleComponent } from './shared/theme-toggle/theme-toggle';
   selector: 'app-root',
   imports: [RouterOutlet, RouterLink, NgClass, ThemeToggleComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css',
 })
 export class App {
   drawerOpen = signal(false);

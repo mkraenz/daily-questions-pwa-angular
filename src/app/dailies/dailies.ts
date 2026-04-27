@@ -14,7 +14,6 @@ import { ToastComponent } from './toast/toast';
   selector: 'app-dailies',
   imports: [QuestionViewComponent, SummaryViewComponent, ToastComponent],
   templateUrl: './dailies.html',
-  styleUrl: './dailies.css',
 })
 export class DailiesComponent {
   protected readonly t = inject(LanguageService).t;

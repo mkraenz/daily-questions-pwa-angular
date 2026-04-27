@@ -6,7 +6,6 @@ import { LanguageService } from '../../services/language.service';
   selector: 'app-summary-view',
   imports: [],
   templateUrl: './summary-view.html',
-  styleUrl: './summary-view.css',
 })
 export class SummaryViewComponent {
   protected readonly t = inject(LanguageService).t;

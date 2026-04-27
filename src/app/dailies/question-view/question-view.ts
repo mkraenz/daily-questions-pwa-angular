@@ -16,7 +16,6 @@ import { LanguageService } from '../../services/language.service';
   selector: 'app-question-view',
   imports: [],
   templateUrl: './question-view.html',
-  styleUrl: './question-view.css',
 })
 export class QuestionViewComponent {
   protected readonly t = inject(LanguageService).t;
