@@ -1,12 +1,20 @@
 <div class="max-w-2xl mx-auto p-6">
   @if (questionsLoading()) {
-  <p>{{ t().loading }}</p>
+    <p>{{ t().loading }}</p>
   } @else {
     @if (view() === 'question') {
-    <app-question-view [question]="currentQuestion()" [existingAnswer]="answers().get(currentQuestion().id) || null"
-      (answered)="onAnswer($event)" />
+      <app-question-view
+        [question]="currentQuestion()"
+        [existingAnswer]="answers().get(currentQuestion().id) || null"
+        (answered)="onAnswer($event)"
+      />
     } @else {
-    <app-summary-view [questions]="questions()" [answers]="answers()" (edit)="onEdit($event)" (confirm)="onConfirm()" />
+      <app-summary-view
+        [questions]="questions()"
+        [answers]="answers()"
+        (edit)="onEdit($event)"
+        (confirm)="onConfirm()"
+      />
     }
   }
 

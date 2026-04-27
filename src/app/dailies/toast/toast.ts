@@ -5,7 +5,7 @@ import { NgClass } from '@angular/common';
   selector: 'app-toast',
   imports: [NgClass],
   templateUrl: './toast.html',
-  styleUrl: './toast.css'
+  styleUrl: './toast.css',
 })
 export class ToastComponent {
   message = input<string>('Responses saved!');

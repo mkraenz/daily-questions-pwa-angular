@@ -1,12 +1,19 @@
 <!-- Top header bar -->
-<header class="fixed top-0 left-0 right-0 h-14 flex items-center px-4 bg-white dark:bg-gray-900 shadow-sm z-30 border-b border-gray-200 dark:border-gray-700">
+<header
+  class="fixed top-0 left-0 right-0 h-14 flex items-center px-4 bg-white dark:bg-gray-900 shadow-sm z-30 border-b border-gray-200 dark:border-gray-700"
+>
   <button
     (click)="toggleDrawer()"
     aria-label="Open menu"
     class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
   >
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      ></path>
     </svg>
   </button>
   <span class="ml-4 font-semibold">{{ t().app.title }}</span>
@@ -19,7 +26,9 @@
       (click)="language.cycle()"
       class="text-xl p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg leading-none"
       [attr.aria-label]="language.current()"
-    >{{ language.flag() }}</button>
+    >
+      {{ language.flag() }}
+    </button>
   </div>
 </header>
 
@@ -28,16 +37,16 @@
   <div
     class="fixed inset-0 bg-black/40 z-40 transition-opacity duration-200"
     (click)="closeDrawer()"
-    aria-hidden="true">
-  </div>
+    aria-hidden="true"
+  ></div>
 }
 
 <!-- Drawer panel -->
 <nav
   [ngClass]="drawerOpen() ? 'translate-x-0' : '-translate-x-full'"
   class="fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl z-50 transition-transform duration-300 flex flex-col border-r border-gray-200 dark:border-gray-700"
-  aria-label="Navigation">
-
+  aria-label="Navigation"
+>
   <div class="h-14 flex items-center px-4 border-b border-gray-200 dark:border-gray-700">
     <button
       (click)="closeDrawer()"
@@ -45,7 +54,12 @@
       class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg ml-auto"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
       </svg>
     </button>
   </div>

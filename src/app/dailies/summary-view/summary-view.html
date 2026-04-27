@@ -8,7 +8,9 @@
         class="w-full block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-left transition"
       >
         <p class="font-semibold">{{ question.title }}</p>
-        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">{{ answers().get(question.id) }}</p>
+        <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
+          {{ answers().get(question.id) }}
+        </p>
       </button>
     }
   </div>
